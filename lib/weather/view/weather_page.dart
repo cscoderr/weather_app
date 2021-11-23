@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:retro_weather_app/weather/weather.dart';
 import 'package:weather_ui/weather_ui.dart';
 
 class WeatherPage extends StatelessWidget {
@@ -92,12 +93,12 @@ class WeatherPage extends StatelessWidget {
                         Text(
                           '28',
                           style: WeatherTextStyle.headline1.copyWith(
-                            fontSize: 154.327,
+                            fontSize: 150,
                             letterSpacing: 0.5,
                           ),
                         ),
                         Text(
-                          'oC',
+                          '°C',
                           style: WeatherTextStyle.caption.copyWith(
                             fontSize: 19.2909,
                             letterSpacing: 0.5,
@@ -269,7 +270,8 @@ class WeatherPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                   decoration: BoxDecoration(
                     border: Border.all(color: const Color(0xFFD5C7FF)),
                     borderRadius: BorderRadius.circular(11),
@@ -356,6 +358,7 @@ class WeatherPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
+              NotificationTile(),
             ],
           ),
         );
