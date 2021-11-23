@@ -41,13 +41,16 @@ class WeatherPage extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: WeatherColors.secondary,
-                      borderRadius: BorderRadius.circular(10),
+                  GestureDetector(
+                    onTap: () => showNotificationBottomSheet(context),
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: WeatherColors.secondary,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: SvgPicture.asset('assets/svg/notification.svg'),
                     ),
-                    child: SvgPicture.asset('assets/svg/notification.svg'),
                   ),
                 ],
               ),
@@ -122,32 +125,241 @@ class WeatherPage extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 20,
-                ),
-                decoration: BoxDecoration(
-                  color: WeatherColors.secondary,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Forecast report',
-                      style: WeatherTextStyle.headline5,
-                    ),
-                    const Icon(
-                      Icons.keyboard_arrow_up,
-                      color: WeatherColors.white,
-                    ),
-                  ],
+              InkWell(
+                onTap: () => showForecastReportBottomSheet(context),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: WeatherColors.secondary,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Forecast report',
+                        style: WeatherTextStyle.headline5,
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      const Icon(
+                        Icons.keyboard_arrow_up,
+                        color: WeatherColors.white,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  void showForecastReportBottomSheet(BuildContext context) {
+    showModalBottomSheet<Widget>(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      builder: (BuildContext context) {
+        return Container(
+          height: 630,
+          padding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 20,
+          ),
+          decoration: BoxDecoration(
+            color: WeatherColors.white,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  child: Container(
+                    width: 100,
+                    height: 2,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF9D9D9D),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: const Color.fromRGBO(112, 71, 235, 0.1),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Forecast Report',
+                          style: WeatherTextStyle.caption.copyWith(
+                            color: WeatherColors.primary,
+                          ),
+                        ),
+                        const Icon(
+                          Icons.keyboard_arrow_down,
+                          color: WeatherColors.primary,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Today',
+                  style: WeatherTextStyle.headline4.copyWith(
+                    color: WeatherColors.black,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xFFD5C7FF)),
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            '29',
+                            style: WeatherTextStyle.caption.copyWith(
+                              color: WeatherColors.black,
+                            ),
+                          ),
+                          Text(
+                            '29',
+                            style: WeatherTextStyle.caption.copyWith(
+                              color: WeatherColors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  'Next forecast',
+                  style: WeatherTextStyle.headline4.copyWith(
+                    color: WeatherColors.black,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xFFD5C7FF)),
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            '29',
+                            style: WeatherTextStyle.caption.copyWith(
+                              color: WeatherColors.black,
+                            ),
+                          ),
+                          Text(
+                            '29',
+                            style: WeatherTextStyle.caption.copyWith(
+                              color: WeatherColors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void showNotificationBottomSheet(BuildContext context) {
+    showModalBottomSheet<Widget>(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      builder: (BuildContext context) {
+        return Container(
+          height: 450,
+          padding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 20,
+          ),
+          decoration: BoxDecoration(
+            color: WeatherColors.white,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Column(
+            children: [
+              Align(
+                child: Container(
+                  width: 100,
+                  height: 2,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF9D9D9D),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Align(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(112, 71, 235, 0.1),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    'Your Notifications',
+                    style: WeatherTextStyle.caption.copyWith(
+                      color: WeatherColors.primary,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
