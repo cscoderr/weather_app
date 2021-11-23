@@ -16,7 +16,7 @@ class _WeatherApi implements WeatherApi {
   String? baseUrl;
 
   @override
-  Future<Map<String, dynamic>> getAllForcast(lat, lng, appId) async {
+  Future<Forecast> getAllForcast(lat, lng, appId) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'lat': lat,
@@ -26,13 +26,12 @@ class _WeatherApi implements WeatherApi {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<Map<String, dynamic>>(
+        _setStreamType<Forecast>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, 'data/2.5/onecall',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!.map((k, dynamic v) =>
-        MapEntry(k, dynamic.fromJson(v as Map<String, dynamic>)));
+    final value = Forecast.fromJson(_result.data!);
     return value;
   }
 
