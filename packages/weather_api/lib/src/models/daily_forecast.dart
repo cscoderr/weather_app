@@ -17,4 +17,11 @@ class DailyForecast {
   final int? dt;
   final List<Weather>? weather;
   final Temperature? temp;
+
+  // double get toCelsius => temp!. - 273;
+
+  // double get toFahrenheit => ((9 / 5) * toFahrenheit) + 32;
+
+  DateTime get date =>
+      DateTime.fromMillisecondsSinceEpoch(dt! * 1000, isUtc: false);
 }

@@ -5,7 +5,7 @@ part 'forecast.g.dart';
 
 @JsonSerializable()
 class Forecast {
-  Forecast({
+  const Forecast({
     this.current,
     this.hourly,
     this.daily,

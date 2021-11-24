@@ -20,8 +20,8 @@ class _WeatherApi implements WeatherApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'lat': lat,
-      r'lng': lng,
-      r'appId': appId
+      r'lon': lng,
+      r'appid': appId
     };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};

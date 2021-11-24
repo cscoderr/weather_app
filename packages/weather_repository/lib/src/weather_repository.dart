@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:weather_api/weather_api.dart';
-import 'package:weather_repository/weather_repository.dart';
 
 class ForecastError implements Exception {}
 
@@ -20,8 +19,13 @@ class WeatherRepository {
   Future<Forecast> getForcast({double? lat, double? lng}) async {
     try {
       final response = await _weatherApi.getAllForcast(lat!, lng!, _apiKey);
-      return Forecast.fromJson(response);
-    } on Exception {
+      print(response.current);
+      return response;
+    } on DioError catch (e) {
+      print(e);
+      throw ForecastError();
+    } on Exception catch (e) {
+      print(e);
       throw ForecastError();
     }
   }

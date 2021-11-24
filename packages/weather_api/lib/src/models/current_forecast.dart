@@ -13,4 +13,11 @@ class CurrentForecast {
   final int? dt;
   final double? temp;
   final List<Weather>? weather;
+
+  double get toCelsius => temp! - 273;
+
+  double get toFahrenheit => ((9 / 5) * toFahrenheit) + 32;
+
+  DateTime get date =>
+      DateTime.fromMillisecondsSinceEpoch(dt! * 1000, isUtc: false);
 }

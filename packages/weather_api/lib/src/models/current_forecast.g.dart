@@ -9,7 +9,9 @@ part of 'current_forecast.dart';
 CurrentForecast _$CurrentForecastFromJson(Map<String, dynamic> json) =>
     CurrentForecast(
       dt: json['dt'] as int?,
-      weather: json['weather'] as List<Weather>?,
+      weather: (json['weather'] as List<dynamic>)
+          .map((e) => Weather.fromJson(e as Map<String, dynamic>))
+          .toList(),
       temp: (json['temp'] as num?)?.toDouble(),
     );
 
