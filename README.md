@@ -8,7 +8,8 @@ This project is a starting point for a Flutter application.
 
 |  |  |
 | ----------- | ----------- |
-| ![alt text](screenshots/image1.png) | ![alt text](screenshots/image2.pnh) |
+| ![alt text](screenshots/image1.png) | ![alt text](screenshots/image2.png) |
+| ![alt text](screenshots/image3.png) | ![alt text](screenshots/image1.png) |
 
 A few resources to get you started if this is your first Flutter project:
 
