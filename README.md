@@ -4,9 +4,9 @@ A Flutter Weather Application project using Retrofit with Retrofit Generator and
 
 
 ## Features
-# It involves 5 hours forecast
-# Display of current Curent forecast
-# Next 5 days forecast
+* It involves 5 hours forecast
+* Display of current Curent forecast
+* Next 5 days forecast
 
 
 ## Screenshots
