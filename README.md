@@ -1,21 +1,17 @@
 # retro_weather_app
 
-A new Flutter project.
+A Flutter Weather Application project using Retrofit with Retrofit Generator and https://api.openweathermap.org/ Api.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Features
+# It involves 5 hours forecast
+# Display of current Curent forecast
+# Next 5 days forecast
 
-|  |  |
-| ----------- | ----------- |
-| ![alt text](screenshots/image1.png) | ![alt text](screenshots/image2.png) |
-| ![alt text](screenshots/image3.png) | ![alt text](screenshots/image1.png) |
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
+<h4 align="center">
+<img src="screenshots/image1.png" width="35%" vspace="10" hspace="10">
+<img src="screenshots/image2.png" width="35%" vspace="10" hspace="10">
+<img src="screenshots/image3.png" width="35%" vspace="10" hspace="10">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
